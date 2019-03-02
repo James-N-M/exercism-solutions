@@ -10,7 +10,7 @@ function isPangram($sentence) {
 
     $alphabetArray = range('a','z');
 
-    $newArray = array_diff($alphabetArray, $arrayOfCharacters);
+    $missingLettersArray = array_diff($alphabetArray, $arrayOfCharacters);
 
-    return (count($newArray) == 0 ? true : false );
+    return (count($missingLettersArray) == 0 ? true : false );
 }
