@@ -1,16 +1,16 @@
 <?php
 
-function isPangram($sentence) {
+function isPangram(string $sentence) : bool {
 
     if(empty($sentence)) {
         return false;
     }
 
-    $arrayOfCharacters = str_split(strtolower($sentence));
+    $characters = str_split(strtolower($sentence));
 
-    $alphabetArray = range('a','z');
+    $alphabet = range('a','z');
 
-    $missingLettersArray = array_diff($alphabetArray, $arrayOfCharacters);
+    $isMissingLetters = count(array_diff($alphabet, $characters)) === 0;
 
-    return (count($missingLettersArray) == 0 ? true : false );
+    return $isMissingLetters;
 }
