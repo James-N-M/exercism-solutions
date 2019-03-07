@@ -5,7 +5,18 @@ const PLANG = "Plang";
 const PLONG = "Plong";
 
 function raindrops(int $number) : string {
-    $conversion = "";
+
+    $conversion = convertNumberToSounds($number, "");
+
+    if( !empty($conversion) ) {
+        return $conversion;
+    }
+    else {
+        return $number;
+    }
+}
+
+function convertNumberToSounds(int $number, $conversion) : string {
 
     if( ($number % 3) === 0 ) {
         $conversion .= PLING;
@@ -19,11 +30,5 @@ function raindrops(int $number) : string {
         $conversion .= PLONG;
     }
 
-    if( !empty($conversion) ) {
-        return $conversion;
-    }
-    else {
-        return $number;
-    }
-
+    return $conversion;
 }
