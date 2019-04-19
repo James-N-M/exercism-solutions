@@ -9,7 +9,7 @@ function isValid(string $number) : bool {
     if(count($numbers) == 1) {
         return false;
     }
-    
+
     $numbers = doubleSecondNumbers($numbers);
     $sum = array_sum($numbers);
 
