@@ -2,7 +2,7 @@
 
 function isValid(string $number) : bool {
 
-    $number = preg_replace('/\s/', '',$number);
+    $number = str_replace(" ", '',$number);
     $numbers = str_split($number);
     $numbers = stringToIntegerArray(array_reverse($numbers));
 
@@ -13,17 +13,9 @@ function isValid(string $number) : bool {
     $numbers = doubleSecondNumbers($numbers);
     $sum = array_sum($numbers);
 
-    return isSumDivisibleBy10($sum);
+    return $sum % 10 === 0;
 }
 
-function isSumDivisibleBy10(int $sum): bool {
-    if($sum % 10 == 0) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 function doubleSecondNumbers($numbers) {
     $counter = 1;
     for($i = 0; $i < count($numbers); $i++)
