@@ -18,5 +18,5 @@ function sumOfSquares(int $number) : int
 
 function squared(int $number) : int
 {
-    return pow($number, POWER_OF_TWO);
+    return $number ** POWER_OF_TWO;
 }
