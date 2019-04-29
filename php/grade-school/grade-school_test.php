@@ -27,10 +27,10 @@ class GradeSchoolTest extends TestCase
         $students = $this->school->grade(2);
         $this->assertCount(3, $students);
 
-//        $this->assertEqualsCanonicalizing(
-//            ['Claire', 'Marc', 'Virginie'],
-//            $students
-//        );
+        $this->assertEqualsCanonicalizing(
+            ['Claire', 'Marc', 'Virginie'],
+            $students
+        );
     }
 
     public function testAddStudentInDifferentGrades()
