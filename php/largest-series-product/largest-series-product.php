@@ -13,19 +13,25 @@ class Series
     }
 
     function largestProduct(int $length) : int {
+
         $this->validate($length);
+
         for($i = 0; $i <= count($this->series) - $length; $i++) {
             $product = 1;
             for ($j = $i; $j < $i + $length; $j++) {
                 if(is_numeric($this->series[$j])) {
                     $product *= $this->series[$j];
-                } else $this->nonDigitEncountered();
+                } else {
+                    $this->nonDigitEncountered();
+                }
             }
             $this->setLargestSeriesProduct($product);
         }
+
         if($this->checkForAllZeroSpans()) {
             return 0;
         }
+
         return $this->largestSeriesProduct;
     }
 
@@ -55,6 +61,6 @@ class Series
     }
 
     private function nonDigitEncountered() {
-        throw new InvalidArgumentException('rejects empty string and non zero span');
+        throw new InvalidArgumentException('rejects a string with a non digit');
     }
 }
