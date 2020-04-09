@@ -1,6 +1,6 @@
 <?php
 
-function detectAnagrams(string $word, array $possibleAnagrams) : array
+function detectAnagrams(string $word, array $possibleAnagrams): array
 {
     $sublist = [];
 
@@ -19,11 +19,11 @@ function sortString(string $string): string
     return implode($arr);
 }
 
-function isSameWord($word, $possibleAnagram) {
+function isSameWord(string $word, string $possibleAnagram): bool {
     return strtolower($word) === strtolower($possibleAnagram);
 }
 
-function isAnagram($word, $possibleAnagram) {
+function isAnagram(string $word, string $possibleAnagram): bool {
 
     if(isSameWord($word, $possibleAnagram)) return false;
 
