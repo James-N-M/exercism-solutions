@@ -5,10 +5,8 @@ function detectAnagrams(string $word, array $possibleAnagrams) : array
     $sublist = [];
 
     foreach($possibleAnagrams as $possibleAnagram) {
-        if(validate($word, $possibleAnagram)) {
-            if(sortString(strtolower($word)) === sortString(strtolower($possibleAnagram))) {
-                $sublist[] = $possibleAnagram;
-            }
+        if(isAnagram($word, $possibleAnagram)) {
+            $sublist[] = $possibleAnagram;
         }
     }
     return $sublist;
@@ -21,6 +19,15 @@ function sortString(string $string): string
     return implode($arr);
 }
 
-function validate($word, $possibleAnagram) {
-    return strtolower($word )!== strtolower($possibleAnagram);
+function isSameWord($word, $possibleAnagram) {
+    return strtolower($word) === strtolower($possibleAnagram);
+}
+
+function isAnagram($word, $possibleAnagram) {
+
+    if(isSameWord($word, $possibleAnagram)) return false;
+
+    $word = sortString(strtolower($word));
+    $possibleAnagram = sortString(strtolower($possibleAnagram));
+    return $word === $possibleAnagram;
 }
